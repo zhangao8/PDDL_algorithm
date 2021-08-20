@@ -1,6 +1,6 @@
-# PDDL_algorithm
+# PDDL Algorithm
 
-Python code to implement the primal-dual deep learning (PDDL) algorithm in joint power and relay allocation problems.
+Python code to implement the primal-dual deep learning (PDDL) algorithm in relay-assisted multichannel FSO networks.
 
 main.py contains the whole process from data generation, training, and plotting.
 
