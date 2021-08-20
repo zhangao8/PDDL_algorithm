@@ -1,0 +1,12 @@
+*.pyc
+*.tmp
+~*
+*~*
+*~
+*.png
+*.swp
+data
+images
+ml_test
+
+
