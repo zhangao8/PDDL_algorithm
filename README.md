@@ -2,7 +2,7 @@
 
 Python code to implement the primal-dual deep learning (PDDL) algorithm in relay-assisted multichannel FSO networks.
 
-main.py contains the whole process from data generation, training, and plotting.
+main.py contains the whole process from data generation, training, plotting, and data saving.
 
 policy_distribution.py contains the definitions of policy distribution, such as the truncated Gaussian distribution, the category distribution, and their combination.
 
