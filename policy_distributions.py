@@ -171,7 +171,6 @@ class TruncatedGaussianDistribution(ProbabilityAction):
 
         output = tf.concat([mean, std], axis=1)
 
-
         dist = tf.distributions.Normal(mean, std)
 
         log_probs = dist.log_prob(selected_action) - tf.log(dist.cdf(self.upper_bound) - dist.cdf(self.lower_bound))
@@ -260,13 +259,10 @@ class CategoryGaussianDistribution(ProbabilityAction):
         super(CategoryGaussianDistribution,self).__init__(12/7, action_dim)
         
         self.num_relays = num_relays
-        self.num_channels = num_channels
-        
-        
+        self.num_channels = num_channels              
         
         self.gaussian1 = TruncatedGaussianDistribution(num_channels, lower_bound, upper_bound)
-        self.gaussian2 = TruncatedGaussianDistribution(num_channels, lower_bound, upper_bound)
-        
+        self.gaussian2 = TruncatedGaussianDistribution(num_channels, lower_bound, upper_bound)        
         
         self.catago1 = CategoricalDistribution(num_relays, num_relays)
         
@@ -281,16 +277,12 @@ class CategoryGaussianDistribution(ProbabilityAction):
         gaussian2_p = tf.gather(params, np.array(range((2*pt1), (4*pt1))), axis=1, name='gp2')
         
         
-        catago1_p = tf.gather(params, np.array(range(4*pt1, (4*pt1 + pt2))), axis=1, name='bp1')
-        
-
+        catago1_p = tf.gather(params, np.array(range(4*pt1, (4*pt1 + pt2))), axis=1, name='bp1')       
         
         transmit_action1 = tf.gather(selected_action, np.array(range(pt1)), axis=1, name='transmit1')
-        transmit_action2 = tf.gather(selected_action, np.array(range((pt1),(2*pt1))), axis=1, name='transmit2')
-        
+        transmit_action2 = tf.gather(selected_action, np.array(range((pt1),(2*pt1))), axis=1, name='transmit2')        
         
         relay_action1 = tf.gather(selected_action, np.array(range(pt1, (pt1 + pt2))), axis=1, name='relay1')
-
 
         log_probs1, output1 = self.gaussian1.log_prob(gaussian1_p,transmit_action1)
         log_probs2, output2 = self.gaussian2.log_prob(gaussian2_p,transmit_action2)
@@ -310,12 +302,9 @@ class CategoryGaussianDistribution(ProbabilityAction):
         pt1 = int(self.num_channels)
         pt2 = self.num_relays
 
-
         gaussian1_p = params[:,:2*pt1]
         gaussian2_p = params[:,(2*pt1):(4*pt1)]
         catago1_p = params[:,(4*pt1):(4*pt1 + pt2)]
-
-
 
         action1 = self.gaussian1.get_action(gaussian1_p)
         action2 = self.gaussian2.get_action(gaussian2_p)
