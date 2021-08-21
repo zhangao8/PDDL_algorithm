@@ -147,9 +147,9 @@ def wireless_capacity_powerrelay():
     PS = 0.6    
     e = 1.6e-19    
     A = 1    
-    mu = -0.02 
-    sigma = 0.2
-    hl=0.317    
+    mu = -1 
+    sigma = 0.25
+    hl=0.1    
     num_channels = 5 
     num_relays = 5
     r=0.75
