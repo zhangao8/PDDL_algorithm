@@ -36,7 +36,7 @@ class FSOCapacitySystem(ProbabilisticSystem):
         self.w[0,1]=0.28        
         self.w[0,2]=0.8        
         self.w[0,3]=0.01        
-        self.w[0,4]=0.09
+        self.w[0,4]=0.03
         
     def sample(self, batch_size):
         
