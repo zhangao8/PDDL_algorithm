@@ -32,11 +32,11 @@ class FSOCapacitySystem(ProbabilisticSystem):
         self.A = A
         self.v = np.ones((1, num_channels))*0.05
         self.w = np.random.random_sample((1, num_channels))                        
-        self.w[0,0]=0.56        
-        self.w[0,1]=0.28        
-        self.w[0,2]=0.8        
+        self.w[0,0]=0.35        
+        self.w[0,1]=0.21        
+        self.w[0,2]=0.66        
         self.w[0,3]=0.01        
-        self.w[0,4]=0.03
+        self.w[0,4]=0.09
         
     def sample(self, batch_size):
         
