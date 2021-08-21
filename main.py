@@ -142,17 +142,17 @@ def wireless_capacity_powerrelay():
     
     # Define system parameters
     Tf = 1e-8   
-    B=5e8
+    B = 5e8
     PT = 1.5
     PS = 0.6    
     e = 1.6e-19    
     A = 1    
-    mu = -1 
-    sigma = 0.25
-    hl=0.1    
+    mu = -0.02 
+    sigma = 0.2
+    hl = 0.317    
     num_channels = 5 
     num_relays = 5
-    r=0.75
+    r = 0.75
 
     # Define FSO system
     sys = FSOCapacitySystem(num_channels, hl, num_relays, PS=PS, PT=PT, e=e, A=A, r=r, Tf=Tf, B=B, mu=mu, sigma=sigma)
