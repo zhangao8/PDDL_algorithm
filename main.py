@@ -171,7 +171,7 @@ def wireless_capacity_powerrelay():
 
     # Primal-Dual Training
     policies = {'Primal-dual deep learning method': reinforce_policy}
-    history_dict = run_sys(sys, policies, 20000)[0]
+    history_dict = run_sys(sys, policies, 30000)[0]
     
     # Save data
     plot_data(history_dict, "images/FSO_capacity_")
